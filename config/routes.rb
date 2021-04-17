@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'web/index'
   devise_for :users
   resources :rooms do
     resources :messages
