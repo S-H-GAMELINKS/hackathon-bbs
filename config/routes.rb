@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: 'web#index'
   devise_for :users
   resources :rooms do
     resources :messages
