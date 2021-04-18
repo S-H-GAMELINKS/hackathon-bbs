@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
     before_action :set_room, only: %i[ new create ]
+    before_action :authenticate_user!, only: %i[edit create update destroy]
   
     def new
       @message = @room.messages.new
