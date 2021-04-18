@@ -3,9 +3,9 @@
         <div class="field">
             <%= form.text_field :content %>
             <% if user_signed_in? %>
-            <%= form.submit "Send" %>
+            <%= form.submit "Send", class: "button" %>
             <% else %>
-            <%= link_to "Send", new_user_session_path %>
+            <%= link_to "Send", new_user_session_path, class: "button" %>
             <% end %>
         </div>
     <% end %>
