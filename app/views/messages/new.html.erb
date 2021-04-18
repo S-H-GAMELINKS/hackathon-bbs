@@ -2,7 +2,11 @@
     <%= form_with(model: [ @message.room, @message ], data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" }) do |form| %>
         <div class="field">
             <%= form.text_field :content %>
+            <% if user_signed_in? %>
             <%= form.submit "Send" %>
+            <% else %>
+            <%= link_to "Send", new_user_session_path %>
+            <% end %>
         </div>
     <% end %>
 <% end %>
