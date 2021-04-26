@@ -34,6 +34,9 @@ gem 'devise'
 # Add Faker
 gem 'faker'
 
+# Add Kaminari
+gem 'kaminari'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
