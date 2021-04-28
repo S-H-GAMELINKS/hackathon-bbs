@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
-  get '/dashboard', to: 'dashboard#index'
+  namespace :dashboard do
+    resources :admins
+    resources :users
+    resources :rooms
+    resources :messages
+    resources :categories
+
+    root to: "admins#index"
+  end
   devise_for :admins
   root to: 'web#index'
   devise_for :users
