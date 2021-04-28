@@ -8,7 +8,6 @@ Rails.application.routes.draw do
 
     root to: "admins#index"
   end
-  get '/dashboard', to: 'dashboard#index'
   devise_for :admins
   root to: 'web#index'
   devise_for :users
