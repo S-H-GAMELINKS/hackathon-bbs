@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/mypage'
   namespace :dashboard do
     resources :admins
     resources :users
