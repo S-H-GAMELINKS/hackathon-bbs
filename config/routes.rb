@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  get 'users/mypage'
+  resources :users, only: [:show] do
+    collection do
+      get 'mypage'
+    end
+  end
   namespace :dashboard do
     resources :admins
     resources :users
