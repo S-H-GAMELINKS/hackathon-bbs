@@ -1,9 +1,4 @@
 Rails.application.routes.draw do
-  resources :users, only: [:show] do
-    collection do
-      get 'mypage'
-    end
-  end
   namespace :dashboard do
     resources :admins
     resources :users
@@ -16,6 +11,11 @@ Rails.application.routes.draw do
   devise_for :admins
   root to: 'web#index'
   devise_for :users
+  resources :users, only: [:show] do
+    collection do
+      get 'mypage'
+    end
+  end
   resources :rooms do
     resources :messages
   end
