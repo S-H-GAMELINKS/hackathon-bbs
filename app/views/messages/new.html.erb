@@ -1,13 +1,29 @@
 <%= turbo_frame_tag "new_message", target: "_top" do %>
     <%= form_with(model: [ @message.room, @message ], data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" }) do |form| %>
-        <div class="field">
-            <%= form.text_field :content %>
-            <% if user_signed_in? %>
-            <%= form.submit "Send", class: "button" %>
-            <% else %>
-            <%= link_to "Send", new_user_session_path, class: "button" %>
-            <% end %>
-        </div>
+        <article class="media">
+            <figure class="media-left">
+                <p class="image is-64x64">
+                <img src="https://bulma.io/images/placeholders/128x128.png">
+                </p>
+            </figure>
+            <div class="media-content">
+                <div class="field">
+                <div class="field">
+                    <p class="control">
+                        <%= form.text_field :content, placeholder: "Add a comment...", class: "textarea" %>
+                    </p>
+                    <% if user_signed_in? %>
+                        <p class="control">
+                            <%= form.submit "Send", class: "button" %>
+                        </p>
+                    <% else %>
+                        <p class="control">
+                            <%= link_to "Send", new_user_session_path, class: "button" %>
+                        </p>
+                    <% end %>
+                </div>
+            </div>
+        </article>
     <% end %>
 <% end %>
 

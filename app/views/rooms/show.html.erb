@@ -14,4 +14,6 @@
   <%= render @room.messages %>
 </div>
 
-<%= turbo_frame_tag "new_message", src: new_room_message_path(@room), target: "_top" %>
+<div class="container m-3">
+  <%= turbo_frame_tag "new_message", src: new_room_message_path(@room), target: "_top" %>
+</div>
