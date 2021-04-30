@@ -1,3 +1,20 @@
-<p id="<%= dom_id message %>">
-  <%= message.created_at.to_s(:short) %>: <%= message.content %>
-</p>
+<article class="media" id="<%= dom_id message %>">
+  <figure class="media-left">
+    <p class="image is-48x48">
+      <% if message.user.icon.attached? %>
+        <%= image_tag message.user.icon %>
+      <% else %>
+        <img src="https://bulma.io/images/placeholders/96x96.png">
+      <% end %>
+    </p>
+  </figure>
+  <div class="media-content">
+    <div class="content">
+      <p>
+        <strong><%= message.user.name %></strong>
+        <%= message.content %>
+      </p>
+    </div>
+  </div>
+</article>
+
