@@ -16,8 +16,13 @@
     <%= form.text_field :name, class: "input is-info" %>
   </div>
 
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_field :content, class: "input is-info" %>
+  </div>
+
   <div class="select">
-    <%= form.collection_select :category_id, @categories, :id, :name, {class: "select is-info"} %>
+    <%= form.collection_select :category_id, @categories, :id, :name, {class: "is-info"} %>
   </div>
 
   <div class="actions">
