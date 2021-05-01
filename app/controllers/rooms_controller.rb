@@ -14,6 +14,7 @@ class RoomsController < ApplicationController
   # GET /rooms/new
   def new
     @room = Room.new
+    @categories = Category.all
   end
 
   # GET /rooms/1/edit
@@ -65,6 +66,6 @@ class RoomsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def room_params
-      params.require(:room).permit(:name)
+      params.require(:room).permit(:name, :Category_id)
     end
 end
