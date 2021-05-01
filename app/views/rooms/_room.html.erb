@@ -9,13 +9,14 @@
                 </div>
                 <div class="media-content">
                     <p class="title is-4"><%= room.name %></p>
-                    <p class="subtitle is-6">@johnsmith</p>
+                    <p class="subtitle is-5"><%= room.content %></p>
                 </div>
             </div>
 
             <div class="content">
-                <a href="#">#css</a> <a href="#">#responsive</a>
-                <br>
+                <% if room.user.name.present? %>
+                    <p>created by <%= room.user.name %></p>
+                <% end %>
                 <%= link_to 'Show', room, "data-turbo-frame": "_top"  %>
                 <%= link_to 'Edit', edit_room_path(room) %>
                 <%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %>
