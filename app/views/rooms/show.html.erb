@@ -2,13 +2,30 @@
 
 <%= turbo_stream_from @room %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @room.name %>
-</p>
+<article class="media" id="<%= dom_id @room %>">
+  <figure class="media-left">
+    <p class="image is-48x48">
+      <% if @room.user.icon.attached? %>
+        <%= image_tag @room.user.icon %>
+      <% else %>
+        <img src="https://bulma.io/images/placeholders/96x96.png">
+      <% end %>
+    </p>
+  </figure>
+  <div class="media-content">
+    <div class="content">
+      <p>
+        <strong><%= @room.user.name %></strong>
+        <%= @room.content %>
+      </p>
+    </div>
+  </div>
+</article>
 
 <%= link_to 'Edit', edit_room_path(@room) %> |
 <%= link_to 'Back', rooms_path %>
+
+<hr>
 
 <div id="messages" class="container">
   <%= render @room.messages %>
