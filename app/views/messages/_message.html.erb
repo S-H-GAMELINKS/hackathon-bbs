@@ -2,7 +2,7 @@
   <figure class="media-left">
     <p class="image is-48x48">
       <% if message.user.icon.attached? %>
-        <%= image_tag message.user.icon %>
+        <%= image_tag url_for(message.user.icon) %>
       <% else %>
         <img src="https://bulma.io/images/placeholders/96x96.png">
       <% end %>
