@@ -18,8 +18,10 @@
                     <p>created by <%= room.user.name %></p>
                 <% end %>
                 <%= link_to 'Show', room, "data-turbo-frame": "_top"  %>
-                <%= link_to 'Edit', edit_room_path(room) %>
-                <%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %>
+                <% if room.user == current_user %>
+                    <%= link_to 'Edit', edit_room_path(room) %>
+                    <%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %>
+                <% end %>
                 <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
             </div>
         </div>
