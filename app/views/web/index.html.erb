@@ -15,97 +15,39 @@
       New Room
     </p>
     <hr>
-    <div class="columns">
-        <div class="column is-one-third">
-            <div class="card">
-                <div class="card-image">
-                    <figure class="image is-4by3">
-                    <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-                    </figure>
-                </div>
-                <div class="card-content">
-                    <div class="media">
-                        <div class="media-left">
-                            <figure class="image is-48x48">
-                            <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                            </figure>
-                        </div>
-                        <div class="media-content">
-                            <p class="title is-4">John Smith</p>
-                            <p class="subtitle is-6">@johnsmith</p>
-                        </div>
-                    </div>
+    <div class="columns is-flex-wrap-wrap">
+        <% @recently_rooms.each do |recently_room| %>
+            <div class="column is-one-third">
+                <%= link_to room_path(recently_room) do %>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-left">
+                                    <figure class="image is-48x48">
+                                        <% if recently_room.user.icon.attached? %>
+                                            <%= image_tag recently_room.user.icon %>
+                                        <% else %>
+                                            <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+                                        <% end %>
+                                    </figure>
+                                </div>
+                                <div class="media-content">
+                                    <p class="title is-4"><%= recently_room.name %></p>
+                                    <p class="subtitle is-6"><%= recently_room.user.name %></p>
+                                </div>
+                            </div>
 
-                    <div class="content">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                        <a href="#">#css</a> <a href="#">#responsive</a>
-                        <br>
-                        <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                            <div class="content">
+                                <p>
+                                    <%= recently_room.content %>
+                                </p>
+                                <time datetime="2016-1-1"><%= recently_room.created_at.to_formatted_s(:db) %></time>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                <% end %>
             </div>
-        </div>
-        <div class="column is-one-third">
-            <div class="card">
-                <div class="card-image">
-                    <figure class="image is-4by3">
-                    <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-                    </figure>
-                </div>
-                <div class="card-content">
-                    <div class="media">
-                        <div class="media-left">
-                            <figure class="image is-48x48">
-                            <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                            </figure>
-                        </div>
-                        <div class="media-content">
-                            <p class="title is-4">John Smith</p>
-                            <p class="subtitle is-6">@johnsmith</p>
-                        </div>
-                    </div>
-
-                    <div class="content">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                        <a href="#">#css</a> <a href="#">#responsive</a>
-                        <br>
-                        <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="column is-one-third">
-            <div class="card">
-                <div class="card-image">
-                    <figure class="image is-4by3">
-                    <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-                    </figure>
-                </div>
-                <div class="card-content">
-                    <div class="media">
-                        <div class="media-left">
-                            <figure class="image is-48x48">
-                            <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                            </figure>
-                        </div>
-                        <div class="media-content">
-                            <p class="title is-4">John Smith</p>
-                            <p class="subtitle is-6">@johnsmith</p>
-                        </div>
-                    </div>
-
-                    <div class="content">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                        <a href="#">#css</a> <a href="#">#responsive</a>
-                        <br>
-                        <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <% end %>
     </div>
   </div>
 </section>
@@ -116,97 +58,39 @@
       Hot Room
     </p>
     <hr>
-    <div class="columns">
-        <div class="column is-one-third">
-            <div class="card">
-                <div class="card-image">
-                    <figure class="image is-4by3">
-                    <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-                    </figure>
-                </div>
-                <div class="card-content">
-                    <div class="media">
-                        <div class="media-left">
-                            <figure class="image is-48x48">
-                            <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                            </figure>
-                        </div>
-                        <div class="media-content">
-                            <p class="title is-4">John Smith</p>
-                            <p class="subtitle is-6">@johnsmith</p>
-                        </div>
-                    </div>
+    <div class="columns is-flex-wrap-wrap">
+        <% @hot_rooms.each do |hot_room| %>
+            <div class="column is-one-third">
+                <%= link_to room_path(hot_room) do %>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-left">
+                                    <figure class="image is-48x48">
+                                        <% if hot_room.user.icon.attached? %>
+                                            <%= image_tag hot_room.user.icon %>
+                                        <% else %>
+                                            <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+                                        <% end %>
+                                    </figure>
+                                </div>
+                                <div class="media-content">
+                                    <p class="title is-4"><%= hot_room.name %></p>
+                                    <p class="subtitle is-6"><%= hot_room.user.name %></p>
+                                </div>
+                            </div>
 
-                    <div class="content">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                        <a href="#">#css</a> <a href="#">#responsive</a>
-                        <br>
-                        <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                            <div class="content">
+                                <p>
+                                    <%= hot_room.content %>
+                                </p>
+                                <time datetime="2016-1-1"><%= hot_room.created_at.to_formatted_s(:db) %></time>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                <% end %>
             </div>
-        </div>
-        <div class="column is-one-third">
-            <div class="card">
-                <div class="card-image">
-                    <figure class="image is-4by3">
-                    <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-                    </figure>
-                </div>
-                <div class="card-content">
-                    <div class="media">
-                        <div class="media-left">
-                            <figure class="image is-48x48">
-                            <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                            </figure>
-                        </div>
-                        <div class="media-content">
-                            <p class="title is-4">John Smith</p>
-                            <p class="subtitle is-6">@johnsmith</p>
-                        </div>
-                    </div>
-
-                    <div class="content">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                        <a href="#">#css</a> <a href="#">#responsive</a>
-                        <br>
-                        <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="column is-one-third">
-            <div class="card">
-                <div class="card-image">
-                    <figure class="image is-4by3">
-                    <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-                    </figure>
-                </div>
-                <div class="card-content">
-                    <div class="media">
-                        <div class="media-left">
-                            <figure class="image is-48x48">
-                            <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                            </figure>
-                        </div>
-                        <div class="media-content">
-                            <p class="title is-4">John Smith</p>
-                            <p class="subtitle is-6">@johnsmith</p>
-                        </div>
-                    </div>
-
-                    <div class="content">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                        <a href="#">#css</a> <a href="#">#responsive</a>
-                        <br>
-                        <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <% end %>
     </div>
   </div>
 </section>
