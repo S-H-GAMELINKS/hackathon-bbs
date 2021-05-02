@@ -2,9 +2,8 @@
 
 <h1>Rooms</h1>
 
-<%= turbo_frame_tag "new_room" do %>
-  <%= link_to 'New Room', new_room_path %>
-<% end %>
+
+<%= link_to 'New Room', new_room_path %>
 
 <%= turbo_frame_tag "rooms", class: "columns is-flex is-flex-wrap-wrap is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd" do %>
   <%= render @rooms %>
