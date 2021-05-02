@@ -17,7 +17,7 @@
                     <%= link_to 'Edit', edit_room_path(room) %>
                     <%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %>
                 </div>
-                <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                <time datetime="2016-1-1"><%= room.created_at.to_formatted_s(:db) %></time>
             </div>
         </div>
     </div>
