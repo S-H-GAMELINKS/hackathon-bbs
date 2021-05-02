@@ -9,6 +9,14 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application' %>
+
+    <style>
+      <% if user_signed_in? %>
+        [data-visible-to-created-user]:not([data-visible-to-created-user="<%= current_user.id %>"]) {
+          visibility: hidden;
+        }
+      <% end %>
+    </style>
   </head>
 
   <body>
