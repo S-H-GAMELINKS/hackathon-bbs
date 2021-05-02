@@ -2,6 +2,7 @@ class RoomsController < ApplicationController
   before_action :set_room, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, only: %i[new edit create update destroy]
   before_action :check_user, only: %i[edit update destroy]
+  before_action :get_categories, only: %i[new edit]
 
   # GET /rooms or /rooms.json
   def index
@@ -15,7 +16,6 @@ class RoomsController < ApplicationController
   # GET /rooms/new
   def new
     @room = Room.new
-    @categories = Category.all
   end
 
   # GET /rooms/1/edit
@@ -72,5 +72,9 @@ class RoomsController < ApplicationController
 
     def check_user
       redirect_to rooms_path if @room.user != current_user 
+    end
+
+    def get_categories
+      @categories = Category.all
     end
 end
