@@ -11,7 +11,6 @@ class MessagesController < ApplicationController
   
       respond_to do |format|
         format.turbo_stream
-        format.html { redirect_to @room }
       end
     end
   
