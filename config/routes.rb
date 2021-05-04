@@ -8,7 +8,9 @@ Rails.application.routes.draw do
 
     root to: "admins#index"
   end
-  devise_for :admins
+  devise_for :admins, controllers: {
+    sessions: 'dashboard/sessions',
+  }
   root to: 'web#index'
   devise_for :users
   resources :users, only: [:show] do
