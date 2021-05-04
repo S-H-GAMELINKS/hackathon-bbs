@@ -2,11 +2,12 @@ class RoomsController < ApplicationController
   before_action :set_room, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, only: %i[new edit create update destroy]
   before_action :check_user, only: %i[edit update destroy]
-  before_action :get_categories, only: %i[new edit]
+  before_action :get_categories, only: %i[index new edit]
 
   # GET /rooms or /rooms.json
   def index
-    @rooms = Room.all
+    @q =Room.ransack(params[:q])
+    @rooms = @q.result
   end
 
   # GET /rooms/1 or /rooms/1.json
