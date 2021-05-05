@@ -1,20 +1,21 @@
 <div class="column is-4" id="<%= dom_id room %>">
-    <div class="card">
-        <div class="card-content">
-            <div class="media">
-                <div class="media-content">
-                    <p class="title is-4"><%= room.name %></p>
+    <%= link_to room, "data-turbo-frame": "_top" do %>
+        <div class="card">
+            <div class="card-content">
+                <div class="media">
+                    <div class="media-content">
+                        <p class="title is-4"><%= room.name %></p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="content">
-                <%= link_to 'Show', room, "data-turbo-frame": "_top"  %>
-                <div data-visible-to-created-user="<%= room.user.id%>">
-                    <%= link_to 'Edit', edit_room_path(room), "data-turbo-frame": "_top"  %>
-                    <%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %>
+                <div class="content">
+                    <div data-visible-to-created-user="<%= room.user.id%>">
+                        <%= link_to 'Edit', edit_room_path(room), "data-turbo-frame": "_top"  %>
+                        <%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %>
+                    </div>
+                    <time datetime="2016-1-1"><%= room.created_at.to_formatted_s(:db) %></time>
                 </div>
-                <time datetime="2016-1-1"><%= room.created_at.to_formatted_s(:db) %></time>
             </div>
         </div>
-    </div>
+    <% end %>
 </div>
