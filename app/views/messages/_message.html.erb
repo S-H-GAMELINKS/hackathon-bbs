@@ -14,7 +14,7 @@
     <div class="content">
       <p>
         <strong><%= message.user.name %></strong>
-        <%= message.content %>
+        <%= simple_format(h(message.content)) %>
       </p>
     </div>
   </div>
