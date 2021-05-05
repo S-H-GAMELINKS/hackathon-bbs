@@ -13,3 +13,27 @@
  *= require_tree .
  *= require_self
  */
+
+ .vw-25 {
+    width: 25vw !important;
+ }
+
+ .vw-50 {
+    width: 50vw !important;
+ }
+
+ .vw-75 {
+    width: 75vw !important;
+ }
+
+ .vh-25 {
+    height: 25vw !important;
+ }
+
+ .vh-50 {
+    height: 50vw !important;
+ }
+
+ .vh-75 {
+    height: 75vw !important;
+ }
