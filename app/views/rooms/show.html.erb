@@ -22,8 +22,10 @@
   </div>
 </article>
 
-<%= link_to 'Edit', edit_room_path(@room) %> |
-<%= link_to 'Back', rooms_path %>
+<% if @room.user == current_user %>
+  <%= link_to 'Edit', edit_room_path(@room) %> |
+  <%= link_to 'Back', rooms_path %>
+<% end %>
 
 <hr>
 
