@@ -18,7 +18,7 @@
     <div class="content">
       <p>
         <strong><%= @room.user.name %></strong>
-        <%= @room.content %>
+        <%= simple_format(h(@room.content)) %>
       </p>
     </div>
   </div>
