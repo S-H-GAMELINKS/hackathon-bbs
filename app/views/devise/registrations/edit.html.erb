@@ -1,58 +1,107 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="is-flex is-justify-content-center">
+  <section class="panel is-primary vw-75">
+    <h2 class="panel-heading">Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    <div data-turbo="false">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, class: "input is-info" %>
-  </div>
+        <div class="panel-block">
+          <div class="control">
+            <%= f.label :name %>
+            <%= f.text_field :name, class: "input is-info", placeholder: "input your name" %>
+          </div>
+        </div>
 
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description, class: "input is-info" %>
-  </div>
+        <div class="panel-block">
+          <div class="control">
+            <%= f.label :description %>
+            <%= f.text_area :description, class: "textarea is-info", placeholder: "input your description" %>
+          </div>
+        </div>
 
-  <div class="field">
-    <%= f.label :icon %><br />
-    <%= f.file_field :icon, class: "is-info" %>
-  </div>
+        <div class="panel-block">
+          <div class="control" data-controller="image-preview">
+            <div class="file">
+              <label class="file-label is-flex is-align-items-center">
+                <%= f.label :icon, class: "label mx-3" %>
+                <% if current_user.icon.attached? %>
+                  <figure class="image is-64x64">
+                    <%= image_tag @user.icon, class: "is-rounded", data: { target: "image-preview.output" } %>
+                  </figure>
+                <% else %>
+                  <figure class="image is-64x64">
+                    <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png" data-target="image-preview.output">
+                  </figure>
+                <% end %>
+                <%= f.file_field :icon, class: "file-input", data: {target: "image-preview.input", action: "image-preview#readURL" } %>
+                <span class="file-cta mx-3">
+                  <span class="file-icon">
+                    <i class="fas fa-upload"></i>
+                  </span>
+                  <span class="file-label">
+                    Choose a file…
+                  </span>
+                </span>
+              </label>
+            </div>
+          </div>
+        </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+        <div class="panel-block">
+          <div class="control">
+            <%= f.label :email, class: "label" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input", placeholder: "input your email" %>
+          </div>
+        </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
+        <div class="panel-block">
+          <div class="control">
+            <%= f.label :password, class: "label" %> <i>(leave blank if you don't want to change it)</i><br />
+            <% if @minimum_password_length %>
+              <em><%= @minimum_password_length %> characters minimum</em>
+            <% end %>
+            <%= f.password_field :password, autocomplete: "new-password", class: "input", placeholder: "input your password" %>
+          </div>
+        </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+        <div class="panel-block">
+          <div class="control">
+            <%= f.label :password_confirmation, class: "label" %>
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input", placeholder: "input your password again" %>
+          </div>
+        </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
+        <div class="panel-block">
+          <div class="control">
+            <%= f.label :current_password, class: "label" %> <i>(we need your current password to confirm your changes)</i><br />
+            <%= f.password_field :current_password, autocomplete: "current-password", class: "input", placeholder: "input your current password" %>
+          </div>
+        </div>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
+        <div class="panel-block">
+          <div class="control is-flex is-justify-content-center">
+            <%= f.submit "Update", class: "button is-primary" %>
+          </div>
+        </div>
+      <% end %>
 
-<h3>Cancel my account</h3>
+      <div class="panel-block">
+        <div class="control is-flex is-justify-content-center my-5">
+          <p class="label">Cancel Your Account</p>
+        </div>
+      </div>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+      <div class="panel-block">
+        <div class="control is-flex is-justify-content-center my-5">
+          <%= button_to "Cancel my account", registration_path(resource_name), class: "button is-danger", data: { confirm: "Are you sure?" }, method: :delete %><br>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
 
-<%= link_to "Back", :back %>
