@@ -8,9 +8,6 @@
             </div>
 
             <div class="content">
-                <% if room.user.name.present? %>
-                    <p>created by <%= room.user.name %></p>
-                <% end %>
                 <%= link_to 'Show', room, "data-turbo-frame": "_top"  %>
                 <div data-visible-to-created-user="<%= room.user.id%>">
                     <%= link_to 'Edit', edit_room_path(room) %>
