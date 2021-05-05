@@ -17,7 +17,7 @@
                     <section class="section">
                         <p class="has-text-centered is-size-2"><%= current_user.name %></p>
                         <h2 class="subtitle has-text-centered">
-                            <%= current_user.description %>
+                            <%= simple_format(h(current_user.description)) %>
                         </h2>
                     </section>
 
