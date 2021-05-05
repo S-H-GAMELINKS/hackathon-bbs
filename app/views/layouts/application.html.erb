@@ -15,6 +15,10 @@
         [data-visible-to-created-user]:not([data-visible-to-created-user="<%= current_user.id %>"]) {
           visibility: hidden;
         }
+      <% else %>
+        [data-visible-to-created-user] {
+          visibility: hidden;
+        }
       <% end %>
     </style>
   </head>
