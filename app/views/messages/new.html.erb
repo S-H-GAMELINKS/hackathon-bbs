@@ -14,7 +14,7 @@
                 <div class="field">
                 <div class="field">
                     <p class="control">
-                        <%= form.text_field :content, placeholder: "Add a comment...", class: "textarea" %>
+                        <%= form.text_area :content, placeholder: "Add a comment...", class: "textarea" %>
                     </p>
                     <% if user_signed_in? %>
                         <p class="control">
