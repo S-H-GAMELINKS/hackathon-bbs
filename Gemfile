@@ -43,6 +43,9 @@ gem 'administrate'
 # Add Ransack
 gem 'ransack'
 
+# Add Heavens Door
+gem 'heavens_door', group: :development
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
