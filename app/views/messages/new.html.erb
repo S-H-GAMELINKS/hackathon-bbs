@@ -12,9 +12,8 @@
             </figure>
             <div class="media-content">
                 <div class="field">
-                <div class="field">
                     <p class="control">
-                        <%= form.text_area :content, placeholder: "Add a comment...", class: "textarea" %>
+                        <%= form.rich_text_area :content, placeholder: "Add a comment...", class: "textarea" %>
                     </p>
                     <% if user_signed_in? %>
                         <p class="control is-flex is-justify-content-flex-end my-3">
