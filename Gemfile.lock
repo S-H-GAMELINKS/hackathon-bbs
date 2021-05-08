@@ -103,6 +103,7 @@ GEM
     ffi (1.15.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    heavens_door (0.3.0)
     hotwire-rails (0.1.3)
       rails (>= 6.0.0)
       stimulus-rails
@@ -268,6 +269,7 @@ DEPENDENCIES
   capybara (>= 3.26)
   devise
   faker
+  heavens_door
   hotwire-rails
   image_processing (~> 1.2)
   jbuilder (~> 2.7)
