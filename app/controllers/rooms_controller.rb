@@ -2,7 +2,7 @@ class RoomsController < ApplicationController
   before_action :set_room, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, only: %i[new edit create update destroy]
   before_action :check_user, only: %i[edit update destroy]
-  before_action :get_categories, only: %i[index new edit]
+  before_action :get_categories, only: %i[index new edit create update]
 
   # GET /rooms or /rooms.json
   def index
